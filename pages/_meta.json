@@ -18,5 +18,16 @@
     "title": "Contact",
     "type": "page",
     "href": "mailto:jjglilleberg@gmail.com"
+  },
+  "featured": {
+    "type": "article",
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false,
+      "footer": false,
+      "sidebar": false,
+      "toc": false,
+      "pagination": false
+    }
   }
 }
