@@ -37,7 +37,7 @@ export function FeaturedWorkIndex() {
         <Link
           href={page.route}
           style={{ color: 'inherit', textDecoration: 'none' }}
-          className="block hover:border-primary border border-transparent rounded-tl-lg rounded-br-lg mx-8 p-2"
+          className="block hover:border-primary border border-transparent rounded-tl-lg rounded-br-lg mx-8 lg:mx-16 p-2"
           tabIndex="0"
         >
         <div className="w-full h-[30vh] p-8 relative rounded">
@@ -50,7 +50,7 @@ export function FeaturedWorkIndex() {
         <div className="flex">
           <div>
             <span className="text-base md:text-xl lg:text-2xl font-bold">{page.frontMatter.title}</span>    
-            <p className="opacity-80 line-clamp-2 m-1 text-sm md:text-base ">
+            <p className="opacity-80 line-clamp-3 m-1 text-sm md:text-base ">
               {page.frontMatter?.description}{' '}
             </p>
             {page.frontMatter?.date ? (
@@ -84,13 +84,13 @@ export function ArchivedWorkIndex() {
         <Link
           href={page.route}
           style={{ color: 'inherit', textDecoration: 'none' }}
-          className="block hover:border-primary border border-transparent rounded-tl-lg rounded-br-lg mx-8 p-2"
+          className="block hover:border-primary border border-transparent rounded-tl-lg rounded-br-lg mx-8 lg:mx-16 p-2"
           tabIndex="0"
         >
         <div className="flex">
           <div>
             <span className="text-base md:text-xl lg:text-2xl font-bold">{page.frontMatter.title}</span>    
-            <p className="opacity-80 line-clamp-2 m-1 text-sm md:text-base ">
+            <p className="opacity-80 line-clamp-3 m-1 text-sm md:text-base ">
               {page.frontMatter?.description}{' '}
             </p>
             {page.frontMatter?.date ? (
