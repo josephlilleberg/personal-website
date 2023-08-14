@@ -36,31 +36,61 @@ const config: DocsThemeConfig = {
   </div>
   },
   useNextSeoProps() {
-    const { asPath } = useRouter()
-    if (asPath !== '/') {
-      return {
-        titleTemplate: '%s'
-      }
+    const { asPath } = useRouter();
+
+    if (['/', '/docs'].includes(asPath)) {
+      return { titleTemplate: 'Joseph Lilleberg' };
     }
+
+    return { titleTemplate: `%s | Joseph Lilleberg` };
   },
   head: () => {
-    const { asPath, defaultLocale, locale } = useRouter()
-    const { frontMatter } = useConfig()
-    const url =
-      'https://josephlilleberg.com' +
-      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
- 
+    const { asPath, pathname } = useRouter();
+    const { frontMatter } = useConfig();
+
+    const ogConfig = {
+      title: 'Joseph Lillleberg',
+      description: 'Joseph Lilleberg\'s Personal Website',
+      author: {
+        twitter: 'LillebergDS',
+      },
+    };
+    const title = String(frontMatter.title || ogConfig.title);
+    const description = String(frontMatter.description || ogConfig.description);
+    const note =
+      (frontMatter.date as string | undefined) ?? pathname === '/'
+        ? 'Joseph Lilleberg'
+        : pathname;
+    const canonical = new URL(asPath, 'https://josephlilleberg.com').toString();
+
+
     return (
       <>
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={frontMatter.title || ''} />
-        <meta
-          property="og:description"
-          content={frontMatter.description || ''}
+        <meta property="og:url" content={canonical} />
+        <link rel="canonical" href={canonical} />
+
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:site" content={`@${ogConfig.author.twitter}`} />
+        <meta name="twitter:creator" content={`@${ogConfig.author.twitter}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta name="apple-mobile-web-app-title" content={title} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet"
         />
       </>
-    )
-  }
+    );
+  },
 }
 
 export default config
