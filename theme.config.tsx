@@ -5,6 +5,8 @@ import { KaggleIcon } from './components/kaggle'
 import { TwitterIcon } from './components/twitter'
 import { IEEEIcon } from './components/ieee'
 import { LinkedInIcon } from './components/linkedin'
+import { useConfig } from 'nextra-theme-docs'
+import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
   logo: <span>Joseph Lillleberg</span>,
@@ -32,6 +34,32 @@ const config: DocsThemeConfig = {
     <LinkedInIcon />
     <IEEEIcon />
   </div>
+  },
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s'
+      }
+    }
+  },
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter()
+    const { frontMatter } = useConfig()
+    const url =
+      'https://josephlilleberg.com' +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+ 
+    return (
+      <>
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={frontMatter.title || ''} />
+        <meta
+          property="og:description"
+          content={frontMatter.description || ''}
+        />
+      </>
+    )
   }
 }
 
