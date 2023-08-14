@@ -1,0 +1,114 @@
+---
+title: Work
+description: The latest updates and releases from the Million.js team.
+---
+
+import { getPagesUnderRoute } from 'nextra/context';
+import Link from 'next/link';
+import Image from 'next/image'
+
+export function WorkHeader() {
+  return (
+    <div className="max-w-screen-lg mx-auto pt-4 pb-8 border-b border-gray-400 border-opacity-20 text-center">
+      <h1>
+        <span className="font-bold leading-tight lg:text-5xl underline decoration-primary">Work</span>
+      </h1>
+      <p className="text-center text-gray-500 dark:text-gray-400 font-space-grotesk">
+        A compilation of works that I'm particularly proud of. This is currently under construction, please refer to my Github.
+      </p>
+    </div>
+  );
+}
+
+export function FeaturedHeader() {
+  return (
+    <div className="max-w-screen-sm mx-auto pt-2 mb-4 border-b border-gray-400 border-opacity-20 text-center">
+      <h1>
+        <span className="font-bold leading-tight lg:text-2xl text-primary">Featured</span>
+      </h1>
+    </div>
+  )
+}
+
+export function FeaturedWorkIndex() {
+  return getPagesUnderRoute('/featured').map((page) => {
+    return (
+      <div key={page.route} className="mb-8">
+        <Link
+          href={page.route}
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          className="block hover:border-primary border border-transparent rounded-tl-lg rounded-br-lg mx-8 p-2"
+          tabIndex="0"
+        >
+        <div className="w-full h-[30vh] p-8 relative rounded">
+            <Image
+              src={page.frontMatter.image}
+              fill
+              className="p-2 rounded-[12px]"
+            />
+          </div>
+        <div className="flex">
+          <div>
+            <span className="text-base md:text-xl lg:text-2xl font-bold">{page.frontMatter.title}</span>    
+            <p className="opacity-80 line-clamp-2 m-1 text-sm md:text-base ">
+              {page.frontMatter?.description}{' '}
+            </p>
+            {page.frontMatter?.date ? (
+              <p className=" text-xs md:text-sm my-2 text-primary font-medium">{page.frontMatter.tags}</p>
+            ) : null} 
+            {page.frontMatter?.date ? (
+              <p className="opacity-40 text-xs md:text-sm my-2">{page.frontMatter.date}</p>
+            ) : null} 
+          </div>
+        </div>
+        </Link>
+      </div>
+    );
+  });
+}
+
+export function ArchiveHeader() {
+  return (
+    <div className="max-w-screen-sm mx-auto pt-2 mb-4 border-b border-gray-400 border-opacity-20 text-center">
+      <h1>
+        <span className="font-bold leading-tight lg:text-2xl ">Archive</span>
+      </h1>
+    </div>
+  )
+}
+
+export function ArchivedWorkIndex() {
+  return getPagesUnderRoute('/work').map((page) => {
+    return (
+      <div key={page.route} className="mb-8">
+        <Link
+          href={page.route}
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          className="block hover:border-primary border border-transparent rounded-tl-lg rounded-br-lg mx-8 p-2"
+          tabIndex="0"
+        >
+        <div className="flex">
+          <div>
+            <span className="text-base md:text-xl lg:text-2xl font-bold">{page.frontMatter.title}</span>    
+            <p className="opacity-80 line-clamp-2 m-1 text-sm md:text-base ">
+              {page.frontMatter?.description}{' '}
+            </p>
+            {page.frontMatter?.date ? (
+              <p className=" text-xs md:text-sm my-2 text-primary font-medium">{page.frontMatter.tags}</p>
+            ) : null} 
+            {page.frontMatter?.date ? (
+              <p className="opacity-40 text-xs md:text-sm my-2">{page.frontMatter.date}</p>
+            ) : null} 
+          </div>
+        </div>
+        </Link>
+      </div>
+    );
+  });
+}
+
+<WorkHeader />
+<FeaturedHeader />
+<FeaturedWorkIndex />
+<ArchiveHeader />
+<ArchivedWorkIndex />

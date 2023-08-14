@@ -1,0 +1,14 @@
+{
+  "*": {
+    "display": "hidden",
+    "theme": {
+      "toc": false,
+      "sidebar": false,
+      "pagination": false,
+      "typesetting": "article"
+    }
+  },
+  "fwork-1": "featured Work 1",
+  "fwork-2": "featured Work 2",
+  "fwork-3": "featured Work 3"
+}

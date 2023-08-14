@@ -1,0 +1,46 @@
+import Image from 'next/image';
+import { useTheme } from 'next-themes'
+import { TwitterIcon } from '../components/twitter'
+import { KaggleIcon } from '../components/kaggle'
+import { IEEEIcon } from '../components/ieee'
+import { LinkedInIcon } from '../components/linkedin'
+
+export function Index() {
+  const { theme, setTheme } = useTheme()
+    return (
+      <div className="mx-auto flex h-screen w-[95vw] max-w-screen-xl items-center  py-8 sm:justify-start">
+        <div className="flex flex-col px-[2vw] md:w-3/4">
+          <div className="flex w-3/4 select-none flex-col gap-4 font-light">
+            <p className="text-3xl sm:text-6xl smmd:text-7xl md:text-8xl lg:text-9xl font-bold">
+              Hello<span className="text-primary">,</span>
+            </p>
+            <p className="text-4xl sm:text-5xl smmd:text-6xl md:text-7xl lg:text-8xl">
+              I<span className="text-primary">'</span>m{" "}
+              <span className="underline decoration-primary decoration-2 lg:decoration-[6px]">
+                Joseph
+              </span>
+              <span className="text-primary">.</span>
+            </p>
+            <p className="text-zinc-600 dark:text-zinc-300 smmd:text-lg md:text-xl lg:text-2xl">
+              <span className="text-primary">&#x2014;</span> Machine learning engineer
+            </p>
+            <p className="text-xs smmd:text-base">
+              Data centric, minimalist, and aspiring chef. I focus on the
+              creative ways data can be used to derive stories, analyses, and
+              context to make informed decisions and inspire growth. Currently,
+              I am captivated by the complexities of languages and resolving
+              their ambiguity is a creative problem I am very passionate about.
+            </p>
+          </div>
+          <div className='flex flex-row mt-4'>
+            <KaggleIcon />
+            <TwitterIcon />      
+            <LinkedInIcon />
+            <IEEEIcon />
+          </div>
+        </div>
+      </div>
+    )
+}
+
+<Index />

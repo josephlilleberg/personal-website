@@ -1,0 +1,22 @@
+{
+  "index": {
+    "title": "Home",
+    "type": "page",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "work": {
+    "title": "Work",
+    "type": "page"
+  },
+  "blog": {
+    "title": "Blog",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact",
+    "type": "page",
+    "href": "mailto:jjglilleberg@gmail.com"
+  }
+}

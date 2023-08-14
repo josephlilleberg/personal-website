@@ -1,0 +1,14 @@
+{
+  "*": {
+    "display": "hidden",
+    "theme": {
+      "toc": false,
+      "sidebar": false,
+      "pagination": false,
+      "typesetting": "article"
+    }
+  },
+  "work-1": "Work 1",
+  "work-2": "Work 2",
+  "work-3": "Work 3"
+}
